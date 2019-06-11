@@ -245,6 +245,8 @@ class App extends React.PureComponent {
       this.globalObserver.publish("appLoaded");
     });
     this.bindHandlers();
+    // Hmm… where's hfetch in 'this'?!
+    console.log("'this' in App.js componentDidMount()", this);
   }
 
   componentDidCatch(error) {
