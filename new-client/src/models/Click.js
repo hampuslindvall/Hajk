@@ -41,6 +41,8 @@ function query(map, layer, evt) {
     let url = layer
       .getSource()
       .getGetFeatureInfoUrl(coordinate, resolution, referenceSystem, params);
+    // So, how can we reach hfetch from here?
+    console.log("'this' in Click.js's query(): ", this);
     return fetch(url, fetchConfig);
   } else {
     return false;
