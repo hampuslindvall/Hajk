@@ -177,7 +177,7 @@ class AppModel {
     }, 0);
 
     if (config.tools.some(tool => tool.type === "infoclick")) {
-      bindMapClickEvent(map, mapClickDataResult => {
+      bindMapClickEvent(map, this.HFetchInstance, mapClickDataResult => {
         this.globalObserver.publish("mapClick", mapClickDataResult);
       });
     }

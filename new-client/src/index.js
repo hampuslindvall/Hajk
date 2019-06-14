@@ -78,7 +78,7 @@ fetch("appConfig.json", fetchConfig)
       Promise.all([
         HFetchInstance.hfetch("/config/layers"),
         HFetchInstance.hfetch(`/config/${defaultMap}`),
-        fetch("customTheme.json", fetchConfig)
+        fetch("customTheme.json", fetchConfig) // Not using HFetch here as customTheme.json will always be in the same dir as our code
       ])
         .then(
           ([layersConfigResponse, mapConfigResponse, customThemeResponse]) => {
