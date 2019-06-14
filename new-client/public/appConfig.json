@@ -1,9 +1,9 @@
 {
   "appName": "Hajk",
   "version": "3.0.0",
-  "mapserviceBase": "https://internkarta.halmstad.se/mapservice3",
+  "mapserviceBase": "http://localhost:55630",
   "proxy": "",
   "searchProxy": "",
-  "defaultMap": "ext",
+  "defaultMap": "map_1",
   "debug": true
 }
