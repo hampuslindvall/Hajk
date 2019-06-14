@@ -228,7 +228,11 @@ class App extends React.PureComponent {
       mobile: window.innerWidth < 600
     };
     this.globalObserver = new Observer();
-    this.appModel = new AppModel(props.config, this.globalObserver);
+    this.appModel = new AppModel(
+      props.config,
+      this.globalObserver,
+      props.HFetchInstance
+    );
     this.widgetsLeftContainer = document.createElement("div");
     this.widgetsRightContainer = document.createElement("div");
   }
@@ -245,8 +249,6 @@ class App extends React.PureComponent {
       this.globalObserver.publish("appLoaded");
     });
     this.bindHandlers();
-    // Hmm… where's hfetch in 'this'?!
-    console.log("'this' in App.js componentDidMount()", this);
   }
 
   componentDidCatch(error) {

@@ -27,11 +27,11 @@ class MapSwitcher extends React.PureComponent {
   }
 
   componentDidMount() {
-    let { mapserviceBase } = this.appModel.config.appConfig;
     let { activeMap } = this.appModel.config;
 
-    this.appModel
-      .hfetch(`${mapserviceBase}/config/userspecificmaps`)
+    console.log("this.appModel.myFetch", this.appModel.myFetch);
+
+    this.appModel.HFetchInstance.hfetch(`/config/userspecificmaps`)
       .then(resp => resp.json())
       .then(maps => {
         // Save fetched map configs to global variable

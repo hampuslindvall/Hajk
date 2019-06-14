@@ -16,6 +16,7 @@ import ReactDOM from "react-dom";
 import App from "./components/App.js";
 import buildConfig from "./buildConfig.json";
 import { deepMerge } from "./utils/DeepMerge";
+import HFetch from "./utils/HFetch";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
@@ -60,6 +61,8 @@ fetch("appConfig.json", fetchConfig)
   .then(appConfigResponse => {
     appConfigResponse.json().then(appConfig => {
       let defaultMap = appConfig.defaultMap;
+      let HFetchInstance = new HFetch(appConfig);
+
       window.location.search
         .replace("?", "")
         .split("&")
@@ -71,15 +74,10 @@ fetch("appConfig.json", fetchConfig)
             }
           }
         });
+
       Promise.all([
-        fetch(
-          `${appConfig.proxy}${appConfig.mapserviceBase}/config/layers`,
-          fetchConfig
-        ),
-        fetch(
-          `${appConfig.proxy}${appConfig.mapserviceBase}/config/${defaultMap}`,
-          fetchConfig
-        ),
+        HFetchInstance.hfetch("/config/layers"),
+        HFetchInstance.hfetch(`/config/${defaultMap}`),
         fetch("customTheme.json", fetchConfig)
       ])
         .then(
@@ -104,6 +102,7 @@ fetch("appConfig.json", fetchConfig)
                       <App
                         activeTools={buildConfig.activeTools}
                         config={config}
+                        HFetchInstance={HFetchInstance}
                       />
                     </ThemeProvider>,
                     document.getElementById("root")
