@@ -21,27 +21,32 @@ export default class HFetch {
     console.log("INITIALIZING HFETCH");
   }
 
-  hfetch(resource, init = {}, proxy = true, mapserviceCall = true) {
-    console.log("appConfig inside hfetch(): ", this.appConfig);
-
-    let initDefaults = {
-      credentials: "same-origin"
+  hfetch(resource, options = {}) {
+    // We must deepMerge options, otherwise a shallow merge with only
+    // one of the options specified would null other keys in the object.
+    const defaultOpts = {
+      init: { credentials: "same-origin" }, // Some proxies require this
+      proxy: true, // "true" here means we will use proxy IF there's one defined in appConfig.json
+      mapservice: true // "true" here means that the resource will be prefixed with the value of mapserviceBase (from appConfig.json)
     };
+    const opts = deepMerge(defaultOpts, options);
 
-    proxy =
-      typeof proxy === "string" || proxy instanceof String
-        ? proxy
-        : proxy === true
+    if (this.appConfig.debug === true) {
+      console.log("hfetch merged opts:", opts);
+    }
+
+    const proxy =
+      typeof opts.proxy === "string" || opts.proxy instanceof String
+        ? opts.proxy
+        : opts.proxy === true
         ? this.appConfig.proxy
         : "";
-    let mapservice =
-      mapserviceCall === true ? this.appConfig.mapserviceBase : "";
+    const mapservice =
+      opts.mapservice === true ? this.appConfig.mapserviceBase : "";
 
-    init = deepMerge(initDefaults, init);
+    // Note: "init" is called so because it's the official name of fetch()'s second parameter
+    let init = opts.init;
 
-    /**
-     * Debug
-     */
     if (this.appConfig.debug === true) {
       console.log("hfetch called to resource:", resource);
       console.log("hfetch proxy:", proxy);

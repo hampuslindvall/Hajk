@@ -4,11 +4,7 @@ import ImageLayer from "ol/layer/Image";
 //import GML from "ol/format/GML";
 import WMSGetFeatureInfo from "ol/format/WMSGetFeatureInfo";
 
-const fetchConfig = {
-  credentials: "same-origin"
-};
-
-function query(map, layer, evt) {
+function query(map, layer, evt, HFetchInstance) {
   let coordinate = evt.coordinate;
   let resolution = map.getView().getResolution();
   let subLayersToQuery = [];
@@ -41,9 +37,7 @@ function query(map, layer, evt) {
     let url = layer
       .getSource()
       .getGetFeatureInfoUrl(coordinate, resolution, referenceSystem, params);
-    // So, how can we reach hfetch from here?
-    console.log("'this' in Click.js's query(): ", this);
-    return fetch(url, fetchConfig);
+    return HFetchInstance.hfetch(url, { mapservice: false });
   } else {
     return false;
   }
@@ -81,12 +75,7 @@ function getFeaturesFromGml(response, text) {
  * When the requests are done the features are parsed and given the original layer reference.
  * Vector layers are added with the features at pixel method and given the original layer reference as well.
  */
-function handleClick(evt, map, callback) {
-  // TODO: Remove this temporary fix for OL6 beta when no longer necessary
-  // if (evt.originalEvent.target.className !== "ol-unselectable") {
-  //   return;
-  // }
-
+function handleClick(evt, map, HFetchInstance, callback) {
   document.querySelector("body").style.cursor = "progress";
   var promises = [];
   map
@@ -99,7 +88,7 @@ function handleClick(evt, map, callback) {
       );
     })
     .forEach(layer => {
-      var promise = query(map, layer, evt);
+      var promise = query(map, layer, evt, HFetchInstance);
       if (promise) {
         promises.push(
           promise.then(response => {
@@ -189,7 +178,7 @@ function handleClick(evt, map, callback) {
   });
 }
 
-export function bindMapClickEvent(map, callback) {
+export function bindMapClickEvent(map, HFetchInstance, callback) {
   map.on("singleclick", evt => {
     // If Draw, Modify or Snap interaction are currently active, ignore clicks
     if (
@@ -206,7 +195,7 @@ export function bindMapClickEvent(map, callback) {
     ) {
       return;
     } else {
-      handleClick(evt, map, callback);
+      handleClick(evt, map, HFetchInstance, callback);
     }
   });
 }
