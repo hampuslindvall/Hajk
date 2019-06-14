@@ -110,6 +110,7 @@ class WMSLayer {
    * @return {external:"ol.style"} style
    */
   getFeatureInformation(params) {
+    console.log("fetch() in WMSLayer.js called with params: ", params);
     var url;
     try {
       this.validInfo = true;
