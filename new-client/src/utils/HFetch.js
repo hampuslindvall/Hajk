@@ -1,16 +1,34 @@
 /**
  *
  * @param {String,Object} resource
- * @param {Object} init
- * @param {Boolean,String} proxy
+ * @param {Object} options
  *
- * Simple use case  – defaults for @param init and @param proxy (see code for defaults):
- *    this.app.hfetch("someUrl").then();
- * More advanced use case – custom @param init that gets added to existing defaults.
- * Also proxy is disabled with the third parameter.
- *    this.app.hfetch("blabla", { method: "POST" }, false).then();
- * Another example, default @param init but a custom proxy provided as String
- *    this.app.hfetch("blabla", { }, "https://myproxy.domain.com").then();
+ * Requires only one parameter (@param resource). This will make a call to the MapService endpoint,
+ * using the proxy (if specified in appConfig.json) and using default init params (init is fetch()'s second parameter).
+ *
+ * All other parameters are optional, but it's possible to disable use of proxy, disable the
+ * assumption that we want to call a MapService endpoint, and also customize init params.
+ *
+ * Examples below.
+ *
+ * - Simple use case -
+ * Use defaults for @param init and @param proxy (see code for defaults).
+ *    this.app.HFetchInstance.hfetch("someUrl").then();
+ *
+ * - More advanced use case -
+ * Use custom @param init that gets added to existing defaults.
+ * Also do call to the specified resource, without assuming that it's an MapService endpoint.
+ *    this.app.HFetchInstance.hfetch("https://mydomain.com/exampleURIWithAbsolultePath/notPartOfMapService", {
+ *                                init: { method: "POST" },
+ *                                mapservice: false
+ *                              })
+ *    .then();
+ * - Custom proxy use case -
+ * Use default @param init and call MapService, but use a custom proxy, provided as String.
+ *    this.app.HFetchInstance.hfetch("/config/list", {
+ *                                proxy: "https://myproxy.mydomain.com"
+ *                              })
+ *    .then()
  */
 
 import { deepMerge } from "./DeepMerge";
