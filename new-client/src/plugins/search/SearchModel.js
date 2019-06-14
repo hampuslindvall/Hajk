@@ -29,6 +29,7 @@ class SearchModel {
   layerList = [];
 
   mapSouceAsWFSPromise = (feature, projCode) => source => {
+    console.log("mapSouceAsWFSPromise: ", source);
     var geom = feature.getGeometry();
     if (geom.getType() === "Circle") {
       geom = fromCircle(geom);
@@ -373,6 +374,7 @@ class SearchModel {
   }
 
   lookupEstate(source, feature, callback) {
+    console.log("lookupEstate: ", source);
     const projCode = this.olMap
       .getView()
       .getProjection()
@@ -415,6 +417,7 @@ class SearchModel {
   }
 
   lookup(source, searchInput) {
+    console.log("lookup: ", this.app, source);
     const projCode = this.olMap
       .getView()
       .getProjection()
@@ -451,10 +454,11 @@ class SearchModel {
       },
       body: xmlString
     };
-    const promise = fetch(
-      this.app.config.appConfig.searchProxy + source.url,
-      request
-    );
+    const promise = this.app.HFetchInstance.hfetch(source.url, {
+      proxy: this.app.config.appConfig.searchProxy,
+      mapservice: false,
+      init: request
+    });
 
     return { promise, controller };
   }
