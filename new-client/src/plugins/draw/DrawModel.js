@@ -74,6 +74,7 @@ class DrawModel {
 
     this.importUrl = this.options.importUrl;
     this.exportUrl = this.options.exportUrl;
+    this.proxyUrl = this.options.proxyUrl;
 
     this.sketchStyle = [
       new Style({
@@ -598,16 +599,30 @@ class DrawModel {
     if (features.length > 0) {
       postData = createXML(transformed, "ritobjekt");
 
-      fetch(this.app.config.appConfig.searchProxy + this.exportUrl, {
-        method: "POST",
-        credentials: "same-origin",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          data: postData
-        })
-      }).then(response => {
+      // This plugin can be configured to use a different proxy/mapservice
+      // then default. Below we do some checks and use those if specified,
+      // otherwise, fallback to default mapservice and proxy from appConfig.
+      const proxyUrl = this.proxyUrl
+        ? this.proxyUrl
+        : this.app.config.appConfig.searchProxy;
+      const exportUrl = this.exportUrl ? this.exportUrl : "/export/kml";
+      const useMapservice = this.exportUrl ? false : true;
+      const opts = {
+        mapservice: useMapservice,
+        proxy: proxyUrl,
+        init: {
+          method: "POST",
+          credentials: "same-origin",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            data: postData
+          })
+        }
+      };
+
+      this.app.HFetchInstance.hfetch(exportUrl, opts).then(response => {
         response.text().then(fileUrl => {
           if (callback) {
             callback(fileUrl);

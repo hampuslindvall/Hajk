@@ -61,7 +61,7 @@ fetch("appConfig.json", fetchConfig)
   .then(appConfigResponse => {
     appConfigResponse.json().then(appConfig => {
       let defaultMap = appConfig.defaultMap;
-      let HFetchInstance = new HFetch(appConfig);
+      const HFetchInstance = new HFetch(appConfig);
 
       window.location.search
         .replace("?", "")
