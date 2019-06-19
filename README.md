@@ -1,10 +1,11 @@
 # Hajk 3
+
 _An open source web GIS solution based on OpenLayers_
 
 ![alt text](https://github.com/hajkmap/Hajk/raw/master/design/demo-hajk3-2.png "Hajk 3 with all tools visible")
 
-
 ## Quick start
+
 _Note that Hajk consists of 3 applications: the main 'client' (which is the web map front end), 'admin' (which basically is a frontend for client's configuration files) and 'mapservice' (the backend server application which has a REST API)._
 
 1. Clone the repository: `git clone https://github.com/hajkmap/Hajk.git`.
@@ -12,7 +13,7 @@ _Note that Hajk consists of 3 applications: the main 'client' (which is the web 
 1. The client application resides inside `new-client`, so you can do: `cd new-client` and then `npm i && npm start`. (Note that if you have not yet configured a working backend in `appConfig.json`, you will get an error here – don't worry, we'll fix that soon.)
 1. The admin application is located in `new-admin`. To get it running do `cd new-admin && npm i && npm start`.
 1. The client and admin are accompanied by a backend (and an optional proxy) written in .NET. Open both projects in Visual Studio (in `mapservice` and `util` if you need a proxy), then Build and Publish.
-1. Deploy to IIS, make sure that everything is running (choose "Browse" from IIS to see the mapservice page that lists available commands - if you see that, you're good to go). Make sure that the URL your mapservice is running on is the same as specified in client's `appConfig.json`. 
+1. Deploy to IIS, make sure that everything is running (choose "Browse" from IIS to see the mapservice page that lists available commands - if you see that, you're good to go). Make sure that the URL your mapservice is running on is the same as specified in client's `appConfig.json`.
 1. Now you should have client running on localhost:3000 and admin on localhost:3001. Open a browser window and check them out!
 
 To build admin or client, just do `npm run build` instead of `npm start`. This will create a subfolder (`build`) that you can rename and serve as static files from any webserver.
@@ -22,20 +23,22 @@ If you plan to develop for Hajk, make sure to read the next section on code stan
 ## Contributing
 
 ### Git workflow
-Hajk strictly enforces the use of **Git Feature Branch Workflow** as described in [this document](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow). 
+
+Hajk strictly enforces the use of **Git Feature Branch Workflow** as described in [this document](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow).
 
 In short, developing a new feature, would look something like:
+
 1. Always fetch latest with `git fetch`.
 1. Make sure you are in master branch by `git checkout master`.
 1. Make sure that you've pulled all latest changes with `git pull`.
 1. Create a new branch, let's say `three-d-mode`, by runnig `git checkout -b three-d-mode`
-1. Don't forget to set upstream so that your newly created branch is pushed to GitHub: `git branch --set-upstream-to origin/three-d-mode`
-1. `git push` and check that your branch uploads to GitHub.
+1. Don't forget to set upstream so that your newly created branch is pushed to GitHub: `git push --set-upstream origin three-d-mode`
 1. Code… :neckbeard:
 1. Regulary commit changes to your branch with `git commit -S -m "A good comment, can be multiline."`. (Note, the `-S` flag [signs your commit](https://help.github.com/en/articles/signing-commits), and signing commits is something you really should be doing.)
-1. Occasionally, checkout the master branch and merge in changes to your local branch. **This is the really important part.** You can do like this: `git fetch && git merge origin/master`.
-1. When you're done coding, go to GitHub and create a new Pull request, so that your branch can be merged up to `master`. 
-1. Administrators overlooking the project will get notified when you create your Pull request, take a look at the code and if everything looks fine merge it into `master` and delete your feature branch from GitHub. You will still have a copy of your feature branch locally, but it can be safely removed by running `git branch -d three-d-mode`. 
+1. Regulary push your changes to GitHub with `git push`
+1. Regulary rebase your branch from master. That means that you will incoporate recent changes in master into your local branch. **This is the really important part.** You can do it like this: `git fetch && git rebase master`.
+1. When you're done coding, go to GitHub and create a new Pull request, so that your branch can be merged up to `master`.
+1. Administrators overlooking the project will get notified when you create your Pull request, take a look at the code and if everything looks fine merge it into `master` and delete your feature branch from GitHub. You will still have a copy of your feature branch locally, but it can be safely removed by running `git branch -d three-d-mode`.
 
 ### Code standard
 
