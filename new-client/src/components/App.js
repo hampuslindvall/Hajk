@@ -17,6 +17,7 @@ import Reparentable from "./Reparentable";
 import ToolbarMenu from "./ToolbarMenu";
 import { isMobile } from "../utils/IsMobile.js";
 import Zoom from "../controls/Zoom";
+import ScaleLine from "../controls/ScaleLine";
 
 document.windows = [];
 
@@ -474,6 +475,7 @@ class App extends React.PureComponent {
               <div className={classes.columnControls}>
                 <div className={classes.controls}>
                   <Zoom map={this.appModel.getMap()} />
+                  <ScaleLine map={this.appModel.getMap()} />
                 </div>
               </div>
             </div>
