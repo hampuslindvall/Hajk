@@ -196,6 +196,7 @@ namespace MapService.Controllers
 
 		private void GetUserAllowedLayers(ref JToken groups, string[] userGroups)
         {
+            var groupsToRemove = new List<string>();
             foreach (JToken group in groups)
             {
                 if (group.SelectToken("$.groups") != null)
@@ -211,10 +212,18 @@ namespace MapService.Controllers
                 {
                     layers.SelectToken("$.[?(@.id=='" + id + "')]").Remove();
                 }
+                if (((JArray)layers).Count == 0) // Remove group if it's empty
+                {
+                    groupsToRemove.Add(group.SelectToken("$.id").ToString());
+                }
+            }
+            foreach (var id in groupsToRemove)
+            {
+                groups.SelectToken("$.[?(@.id=='" + id + "')]").Remove();
             }
         }
 
-		private List<string> GetLayerObjectsToRemove(JToken layers, string[] userGroups)
+        private List<string> GetLayerObjectsToRemove(JToken layers, string[] userGroups)
         {
             var childrenToRemove = new List<string>();
             foreach (JToken layer in layers)
