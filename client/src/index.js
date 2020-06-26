@@ -60,23 +60,27 @@ fetch("appConfig.json")
   .then(appConfigResponse => {
     appConfigResponse.json().then(appConfig => {
       // Get default map's file name from appConfig
-      let defaultMap = appConfig.defaultMap;
+      // let defaultMap = appConfig.defaultMap;
 
       // It is possible to override default map on request.
       // It is done using a query parameter called "m". Below
       // we check for its existance and read its value.
-      window.location.search
-        .replace("?", "")
-        .split("&")
-        .forEach(pair => {
-          if (pair !== "") {
-            let keyValue = pair.split("=");
-            if (keyValue[0] === "m") {
-              defaultMap = keyValue[1];
-            }
-          }
-        });
+      // window.location.search
+      //   .replace("?", "")
+      //   .split("&")
+      //   .forEach(pair => {
+      //     if (pair !== "") {
+      //       let keyValue = pair.split("=");
+      //       if (keyValue[0] === "m") {
+      //         defaultMap = keyValue[1];
+      //       }
+      //     }
+      //   });
 
+      const defaultMap =
+        new URL(window.location).searchParams.get("m") || appConfig.defaultMap;
+
+      console.log("defaultMap: ", defaultMap);
       // Next, we do 3 necessary requests to MapService
       Promise.all([
         // Get all layers defined in MapService
