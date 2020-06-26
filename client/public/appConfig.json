@@ -1,6 +1,7 @@
 {
   "appName": "Hajk",
   "version": "4.0.0",
+  "proxy": "",
   "mapserviceBase": "http://localhost:8080",
   "defaultMap": "jw",
   "experimentalDownloadLink": false,
