@@ -1,0 +1,16 @@
+{
+  "chapters": [
+    {
+      "header": "JW OP!",
+      "html": "",
+      "mapSettings": {
+        "center": [111664, 6284272],
+        "zoom": 1,
+        "extent": [94528, 6266940, 128800, 6301604]
+      },
+      "chapters": [],
+      "layers": ["100"]
+    }
+  ],
+  "map": "jw"
+}

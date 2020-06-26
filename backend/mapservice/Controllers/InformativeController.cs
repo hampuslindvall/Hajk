@@ -29,7 +29,7 @@ namespace MapService.Controllers
 			Response.ContentType = "application/json; charset=utf-8";
 			Response.Headers.Add("Cache-Control", "private, no-cache");
 
-			string file = String.Format("{0}App_Data\\documents\\{1}.json", HostingEnvironment.ApplicationPhysicalPath, id);
+			string file = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "documents", id + ".json");
 			if (System.IO.File.Exists(file))
 			{
 				return System.IO.File.ReadAllText(file);
@@ -43,7 +43,7 @@ namespace MapService.Controllers
 			Stream req = Request.InputStream;
 			req.Seek(0, System.IO.SeekOrigin.Begin);
 			string json = new StreamReader(req).ReadToEnd();
-			string file = String.Format("{0}App_Data\\documents\\{1}.json", HostingEnvironment.ApplicationPhysicalPath, id);						
+			string file = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "documents", id + ".json");
 			if (System.IO.File.Exists(file))
 			{
 				System.IO.File.WriteAllText(file, json);
@@ -60,8 +60,8 @@ namespace MapService.Controllers
 			string json = new StreamReader(req).ReadToEnd();
 			JObject formData = JObject.Parse(json);
 			string documentName = (string)formData["documentName"];
-			string mapName = (string)formData["mapName"];			
-			string file = String.Format("{0}App_Data\\documents\\{1}.json", HostingEnvironment.ApplicationPhysicalPath, documentName);					
+			string mapName = (string)formData["mapName"];
+			string file = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "documents", documentName + ".json");
 			json = "{\"chapters\": [], \"map\": \"" + mapName + "\"}";
 			System.IO.File.WriteAllText(file, json);
 			return "Document created";			
@@ -69,8 +69,8 @@ namespace MapService.Controllers
         
         [System.Web.Http.HttpDelete]
 		public string Delete(string id)
-		{			
-			string file = String.Format("{0}App_Data\\documents\\{1}.json", HostingEnvironment.ApplicationPhysicalPath, id);
+		{
+			string file = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "documents", id + ".json");
 			System.IO.File.Delete(file);
 			return "Document deleted";
 		}
@@ -83,7 +83,7 @@ namespace MapService.Controllers
 			Response.ExpiresAbsolute = DateTime.Now.AddDays(-1);
 			Response.ContentType = "application/json; charset=utf-8";
 			Response.Headers.Add("Cache-Control", "private, no-cache");
-			string folder = String.Format("{0}App_Data\\documents\\", HostingEnvironment.ApplicationPhysicalPath);			
+			string folder = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "documents");			
 			if (Directory.Exists(folder))
 			{
 				string[] files = Directory.GetFiles(folder).Select(f => Path.GetFileNameWithoutExtension(f)).ToArray();				

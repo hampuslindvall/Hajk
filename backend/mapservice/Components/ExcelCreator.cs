@@ -60,7 +60,7 @@ namespace MapService.Components
                     // Create a new font in the workbook
                     HSSFFont headerRowCellFont = (HSSFFont)workbook.CreateFont();
                     headerRowCellFont.FontName = "Arial";
-                    headerRowCellFont.Boldweight = (short)NPOI.SS.UserModel.FontBoldWeight.Bold;
+                    headerRowCellFont.IsBold = true;
 
                     // Create a new style in the workbook
                     HSSFCellStyle headerRowCellStyle = (HSSFCellStyle)workbook.CreateCellStyle();

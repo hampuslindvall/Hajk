@@ -28,7 +28,7 @@ namespace MapService.DataAccess
         {
             try
             {
-                string file = String.Format("{0}App_Data\\{1}", HostingEnvironment.ApplicationPhysicalPath, this.layerFile);
+                string file = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", this.layerFile);
                 string jsonInput = System.IO.File.ReadAllText(file);
                 var config = JsonConvert.DeserializeObject<LayerConfig>(jsonInput);
                 return config;
@@ -49,7 +49,8 @@ namespace MapService.DataAccess
         {
             try
             {
-                string file = String.Format("{0}App_Data\\{1}", HostingEnvironment.ApplicationPhysicalPath, mapFile);
+                string file = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", mapFile);
+
                 string jsonInput = System.IO.File.ReadAllText(file);
                 return JsonConvert.DeserializeObject<MapConfig>(jsonInput);
 
@@ -69,7 +70,8 @@ namespace MapService.DataAccess
         {
             try
             {
-                string file = String.Format("{0}App_Data\\{1}", HostingEnvironment.ApplicationPhysicalPath, mapFile);
+                string file = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", mapFile);
+
                 string jsonOutput = JsonConvert.SerializeObject(mapConfig, Formatting.Indented);
                 System.IO.File.WriteAllText(file, jsonOutput);
 
@@ -89,7 +91,7 @@ namespace MapService.DataAccess
         {
             try
             {
-                string file = String.Format("{0}App_Data\\{1}", HostingEnvironment.ApplicationPhysicalPath, this.layerFile);
+                string file = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", this.layerFile);
                 string jsonOutput = JsonConvert.SerializeObject(layerConfig, Formatting.Indented);
                 System.IO.File.WriteAllText(file, jsonOutput);
 
@@ -109,7 +111,7 @@ namespace MapService.DataAccess
         {
             try
             {
-                string folder = String.Format("{0}App_Data", HostingEnvironment.ApplicationPhysicalPath);
+                string folder = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data");
                 IEnumerable<string> files = Directory.EnumerateFiles(folder);
                 List<string> fileList = new List<string>();
                 foreach (string file in files)

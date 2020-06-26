@@ -74,7 +74,7 @@ namespace MapService.Components
     {
         private string documentFile = "oversiktsplan.json";
 
-        private string cssFile = "oversiktsplan.css";
+        //private string cssFile = "oversiktsplan.css";
 
         private string layersFile = "layers.json";
 
@@ -86,7 +86,7 @@ namespace MapService.Components
 
         private string baseLayer = "31";
 
-        private List<int> printPages;
+        //private List<int> printPages;
 
         private LayerConfig layers;
 
@@ -500,11 +500,11 @@ namespace MapService.Components
             this.mapFile = informativeExport.mapFile;
             this.baseLayer = informativeExport.baseMapId;
 
-            string file = String.Format("{0}App_Data\\{1}", HostingEnvironment.ApplicationPhysicalPath, this.layersFile);
+            string file = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", this.layersFile);
             var layersJson = System.IO.File.ReadAllText(file);
             this.layers = JsonConvert.DeserializeObject<LayerConfig>(layersJson);
 
-            string mapFile = String.Format("{0}App_Data\\{1}", HostingEnvironment.ApplicationPhysicalPath, this.mapFile);
+            string mapFile = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", this.mapFile);
             var mapJson = System.IO.File.ReadAllText(mapFile);
             this.mapConfig = JsonConvert.DeserializeObject<MapConfig>(mapJson);
             Tool t = this.mapConfig.tools.Find(tool => tool.type == "layerswitcher");
@@ -517,7 +517,7 @@ namespace MapService.Components
             Directory.CreateDirectory("C:\\tmp");
             
             // Load informative document
-            string documentFile = String.Format("{0}App_Data\\documents\\{1}", HostingEnvironment.ApplicationPhysicalPath, this.documentFile);            
+            string documentFile = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "documents", this.documentFile);            
             string documentJson = System.IO.File.ReadAllText(documentFile);            
             var exportDocument = JsonConvert.DeserializeObject<Document>(documentJson);
 
