@@ -230,7 +230,7 @@ class App extends React.PureComponent {
   }
 
   componentDidMount() {
-    var promises = this.appModel
+    const promises = this.appModel
       .createMap()
       .addLayers()
       .loadPlugins(this.props.activeTools);
