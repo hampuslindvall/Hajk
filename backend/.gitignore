@@ -20,7 +20,8 @@ bld/
 [Oo]bj
 
 #logs
-*.log
+*.
+[Ll]ogs/
 
 # Roslyn cache directories
 *.ide/

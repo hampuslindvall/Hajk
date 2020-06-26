@@ -1,6 +1,6 @@
 {
   "name": "hajk-client",
-  "version": "3.3.0",
+  "version": "4.0.0-alpha.1",
   "homepage": ".",
   "private": true,
   "scripts": {
@@ -17,7 +17,7 @@
     "production": [
       ">1% in SE",
       "not dead",
-      "not ie <= 10",
+      "not ie",
       "not op_mini all"
     ],
     "development": [
@@ -35,7 +35,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "@types/react": "^16.9.37",
+    "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",

@@ -137,7 +137,7 @@ class LayersSwitcherView extends React.PureComponent {
       <>
         <div className={classes.windowContent}>
           <AppBar
-            position="sticky" // Does not work in IE11
+            position="sticky"
             color="default"
             className={classes.stickyAppBar}
           >
