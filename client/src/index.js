@@ -18,10 +18,6 @@ const networkErrorMessage =
 const parseErrorMessage =
   "Fel när applikationen skulle läsas in. Detta beror troligtvis på ett konfigurationsfel. Försök igen senare.";
 
-const fetchConfig = {
-  credentials: "same-origin"
-};
-
 /**
  * Helper function that creates a MUI theme by merging
  * hard-coded values (in this function), with custom values
@@ -60,7 +56,7 @@ function getTheme(config, customTheme) {
  * appConfig.json includes URL to the backend application (called MapService),
  * as well as the default preferred map configuration's file name.
  */
-fetch("appConfig.json", fetchConfig)
+fetch("appConfig.json")
   .then(appConfigResponse => {
     appConfigResponse.json().then(appConfig => {
       // Get default map's file name from appConfig
@@ -84,18 +80,14 @@ fetch("appConfig.json", fetchConfig)
       // Next, we do 3 necessary requests to MapService
       Promise.all([
         // Get all layers defined in MapService
-        fetch(
-          `${appConfig.proxy}${appConfig.mapserviceBase}/config/layers`,
-          fetchConfig
-        ),
+        fetch(`${appConfig.proxy}${appConfig.mapserviceBase}/config/layers`),
         // Get the specific, requested map configuration
         fetch(
-          `${appConfig.proxy}${appConfig.mapserviceBase}/config/${defaultMap}`,
-          fetchConfig
+          `${appConfig.proxy}${appConfig.mapserviceBase}/config/${defaultMap}`
         ),
         // Additionally, we fetch a custom theme that allows site admins to override
         // the default MUI theme without re-compiling the application.
-        fetch("customTheme.json", fetchConfig)
+        fetch("customTheme.json")
       ])
         .then(
           ([layersConfigResponse, mapConfigResponse, customThemeResponse]) => {
