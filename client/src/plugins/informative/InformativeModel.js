@@ -1,7 +1,3 @@
-const fetchConfig = {
-  credentials: "same-origin"
-};
-
 class InformativeModel {
   constructor(settings) {
     this.olMap = settings.map;
@@ -141,7 +137,7 @@ class InformativeModel {
   async load(callback) {
     let response;
     try {
-      response = await fetch(this.url, fetchConfig);
+      response = await fetch(this.url);
       const text = await response.text();
       const data = await JSON.parse(text);
 

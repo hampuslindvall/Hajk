@@ -4,10 +4,6 @@ import ImageLayer from "ol/layer/Image";
 //import GML from "ol/format/GML";
 import WMSGetFeatureInfo from "ol/format/WMSGetFeatureInfo";
 
-const fetchConfig = {
-  credentials: "same-origin"
-};
-
 function query(map, layer, evt) {
   let coordinate = evt.coordinate;
 
@@ -42,7 +38,7 @@ function query(map, layer, evt) {
     let url = layer
       .getSource()
       .getFeatureInfoUrl(coordinate, resolution, referenceSystem, params);
-    return fetch(url, fetchConfig);
+    return fetch(url);
   } else {
     return false;
   }
