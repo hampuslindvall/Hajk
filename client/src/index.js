@@ -59,28 +59,10 @@ function getTheme(config, customTheme) {
 fetch("appConfig.json")
   .then(appConfigResponse => {
     appConfigResponse.json().then(appConfig => {
-      // Get default map's file name from appConfig
-      // let defaultMap = appConfig.defaultMap;
-
-      // It is possible to override default map on request.
-      // It is done using a query parameter called "m". Below
-      // we check for its existance and read its value.
-      // window.location.search
-      //   .replace("?", "")
-      //   .split("&")
-      //   .forEach(pair => {
-      //     if (pair !== "") {
-      //       let keyValue = pair.split("=");
-      //       if (keyValue[0] === "m") {
-      //         defaultMap = keyValue[1];
-      //       }
-      //     }
-      //   });
-
+      // Get the name of default map from the m query parameter, or fallback to default
       const defaultMap =
         new URL(window.location).searchParams.get("m") || appConfig.defaultMap;
 
-      console.log("defaultMap: ", defaultMap);
       // Next, we do 3 necessary requests to MapService
       Promise.all([
         // Get all layers defined in MapService
@@ -103,27 +85,14 @@ fetch("appConfig.json")
               .then(([layersConfig, mapConfig, customTheme]) => {
                 // The fetched files are decoded to Objects and placed in
                 // another object, @name config.
-                var config = {
+                const config = {
                   appConfig: appConfig,
                   layersConfig: layersConfig,
                   mapConfig: mapConfig,
                   activeMap: defaultMap
                 };
 
-                // Make sure that the current user is allowed to display the current map
-                const layerSwitcherConfig = config.mapConfig.tools.find(
-                  tool => tool.type === "layerswitcher"
-                );
-                if (layerSwitcherConfig === undefined) {
-                  throw new Error(
-                    "noLayerSwitcher: " +
-                      (config.appConfig.noLayerSwitcherMessage === undefined
-                        ? "This map has no layerSwitcher indicating that you are not allowed to use this map!"
-                        : config.appConfig.noLayerSwitcherMessage)
-                  );
-                }
-
-                let theme = getTheme(config, customTheme);
+                const theme = getTheme(config, customTheme);
 
                 // Invoke React's renderer
                 ReactDOM.render(
@@ -141,11 +110,11 @@ fetch("appConfig.json")
               })
               .catch(err => {
                 console.error("Parse error: ", err.message);
-                var errMsg = parseErrorMessage;
+                let errMsg = parseErrorMessage;
                 if (err.message.startsWith("noLayerSwitcher:")) {
                   errMsg = err.message.substr(err.message.indexOf(":") + 2);
                 }
-                var html = { __html: errMsg };
+                const html = { __html: errMsg };
                 ReactDOM.render(
                   <div className="start-error">
                     <div>
