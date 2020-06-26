@@ -29,9 +29,28 @@ import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
 import { Icon, Fill, Stroke, Style } from "ol/style.js";
 
-var map;
-
 class AppModel {
+  /**
+   * Initialize new AddModel
+   * @param object Config
+   * @param Observer observer
+   */
+  constructor(config, globalObserver) {
+    this.map = null;
+    this.windows = [];
+    this.plugins = {};
+    this.activeTool = undefined;
+    this.config = config;
+    this.globalObserver = globalObserver;
+    this.layersFromParams = [];
+    this.cqlFiltersFromParams = {};
+
+    this.coordinateSystemLoader = new CoordinateSystemLoader(
+      config.mapConfig.projections
+    );
+    register(this.coordinateSystemLoader.getProj4());
+  }
+
   registerWindowPlugin(windowComponent) {
     this.windows.push(windowComponent);
   }
@@ -52,24 +71,6 @@ class AppModel {
       });
   }
 
-  /**
-   * Initialize new AddModel
-   * @param object Config
-   * @param Observer observer
-   */
-  constructor(config, globalObserver) {
-    this.windows = [];
-    this.plugins = {};
-    this.activeTool = undefined;
-    this.config = config;
-    this.coordinateSystemLoader = new CoordinateSystemLoader(
-      config.mapConfig.projections
-    );
-    this.globalObserver = globalObserver;
-    this.layersFromParams = [];
-    this.cqlFiltersFromParams = {};
-    register(this.coordinateSystemLoader.getProj4());
-  }
   /**
    * Add plugin to this tools property of loaded plugins.
    * @internal
@@ -150,7 +151,7 @@ class AppModel {
           if (Object.keys(toolConfig).length > 0) {
             this.addPlugin(
               new Plugin({
-                map: map,
+                map: this.map,
                 app: this,
                 type: plugin,
                 sortOrder: sortOrder,
@@ -173,8 +174,8 @@ class AppModel {
    * @return {ol.Map} map
    */
   createMap() {
-    var config = this.translateConfig();
-    map = new Map({
+    const config = this.#translateConfig();
+    this.map = new Map({
       controls: [
         // new FullScreen({ target: document.getElementById("controls-column") }),
         // new Rotate({ target: document.getElementById("controls-column") }),
@@ -206,11 +207,11 @@ class AppModel {
       })
     });
     setTimeout(() => {
-      map.updateSize();
+      this.map.updateSize();
     }, 0);
 
     if (config.tools.some(tool => tool.type === "infoclick")) {
-      bindMapClickEvent(map, mapClickDataResult => {
+      bindMapClickEvent(this.map, mapClickDataResult => {
         this.globalObserver.publish("core.mapClick", mapClickDataResult);
       });
     }
@@ -218,13 +219,13 @@ class AppModel {
   }
 
   getMap() {
-    return map;
+    return this.map;
   }
 
   clear() {
     this.clearing = true;
     this.highlight(false);
-    map
+    this.map
       .getLayers()
       .getArray()
       .forEach(layer => {
@@ -245,7 +246,7 @@ class AppModel {
     }, 100);
   }
 
-  addMapLayer(layer) {
+  #addMapLayer = layer => {
     const configMapper = new ConfigMapper(this.config.appConfig.proxy);
     let layerItem, layerConfig;
     switch (layer.type) {
@@ -256,25 +257,25 @@ class AppModel {
           this.config.appConfig.proxy,
           this.globalObserver
         );
-        map.addLayer(layerItem.layer);
+        this.map.addLayer(layerItem.layer);
         break;
       case "wmts":
         layerConfig = configMapper.mapWMTSConfig(layer, this.config);
         layerItem = new WMTSLayer(
           layerConfig.options,
           this.config.appConfig.proxy,
-          map
+          this.map
         );
-        map.addLayer(layerItem.layer);
+        this.map.addLayer(layerItem.layer);
         break;
       case "vector":
         layerConfig = configMapper.mapVectorConfig(layer);
         layerItem = new WFSVectorLayer(
           layerConfig.options,
           this.config.appConfig.proxy,
-          map
+          this.map
         );
-        map.addLayer(layerItem.layer);
+        this.map.addLayer(layerItem.layer);
         break;
       // case "arcgis":
       //   layerConfig = configMapper.mapArcGISConfig(layer);
@@ -287,7 +288,7 @@ class AppModel {
       default:
         break;
     }
-  }
+  };
 
   lookup(layers, type) {
     var matchedLayers = [];
@@ -350,7 +351,7 @@ class AppModel {
           );
         }
         layer.cqlFilter = this.cqlFiltersFromParams[layer.id] || null;
-        this.addMapLayer(layer);
+        this.#addMapLayer(layer);
       });
 
     if (infoclickConfig !== undefined) {
@@ -392,7 +393,7 @@ class AppModel {
         })
       })
     });
-    map.addLayer(this.highlightLayer);
+    this.map.addLayer(this.highlightLayer);
   }
 
   getCenter(e) {
@@ -405,8 +406,8 @@ class AppModel {
       if (feature) {
         this.highlightSource.addFeature(feature);
         if (window.innerWidth < 600) {
-          let geom = feature.getGeometry();
-          map.getView().setCenter(this.getCenter(geom.getExtent()));
+          const geom = feature.getGeometry();
+          this.map.getView().setCenter(this.getCenter(geom.getExtent()));
         }
       }
     }
@@ -508,7 +509,7 @@ class AppModel {
     return searchLayers;
   }
 
-  translateConfig() {
+  #translateConfig = () => {
     if (
       this.config.mapConfig.hasOwnProperty("map") &&
       this.config.mapConfig.map.hasOwnProperty("title")
@@ -577,7 +578,7 @@ class AppModel {
     }
 
     return this.mergeConfig(this.config.mapConfig, this.parseQueryParams());
-  }
+  };
 }
 
 export default AppModel;
