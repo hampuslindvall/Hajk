@@ -101,47 +101,7 @@ namespace MapService.Controllers
 			Response.AddHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 			Response.AddHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
 			return null;
-		}
-
-		[HttpPost]
-        public string PDF([System.Web.Http.FromBody]UploadData uploadData)
-        {
-			// try to decode input string to see if it is base64 encoded
-			//try
-			//{
-			//    byte[] decoded = Convert.FromBase64String(json);
-			//    json = System.Text.Encoding.UTF8.GetString(decoded);
-			//    _log.DebugFormat("json after decode: {0}", json);
-			//}
-			//catch (Exception e)
-			//{
-			//    _log.DebugFormat("Could not decode base64. Will treat as non-base64 encoded: {0}", e.Message);
-			//}
-			string fontName = string.IsNullOrEmpty(ConfigurationManager.AppSettings["exportFontName"]) ? "Verdana" : ConfigurationManager.AppSettings["exportFontName"];
-            MapExportItem exportItem = new MapExportItem();
-            if (uploadData.json != null)
-            {
-                exportItem = JsonConvert.DeserializeObject<MapExportItem>(uploadData.json);
-            } 
-            if (uploadData.data != null)
-            {
-                exportItem = JsonConvert.DeserializeObject<MapExportItem>(uploadData.data);
-
-            }
-
-            AsyncManager.OutstandingOperations.Increment();
-            PDFCreator pdfCreator = new PDFCreator();                
-            byte[] blob = pdfCreator.Create(exportItem, fontName);                
-            string[] fileInfo = byteArrayToFileInfo(blob, "pdf");                
-            if (!String.IsNullOrEmpty(exportItem.proxyUrl))
-            {
-                return exportItem.proxyUrl + "/Temp/" + fileInfo[1];
-            }
-            else
-            {
-                return Request.Url.GetLeftPart(UriPartial.Authority) + "/Temp/" + fileInfo[1];
-            }            
-        }        
+		}       
 
         [HttpPost]
         public string TIFF([System.Web.Http.FromBody]UploadData uploadData)

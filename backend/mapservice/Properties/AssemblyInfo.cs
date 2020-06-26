@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Hajk")]
 [assembly: AssemblyProduct("MapService")]
-[assembly: AssemblyCopyright("Copyright © Hajk 2017-2018")]
+[assembly: AssemblyCopyright("Copyright © Hajk 2017-2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
