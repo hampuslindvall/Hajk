@@ -11,23 +11,23 @@
   "announcements": [
     {
       "id": 1,
-      "active": false,
-      "text": "We're currently experiencing some problems and are working hard on fixing them.",
-      "showOnlyOnce": false,
-      "maps": "all",
+      "active": true,
+      "text": "This demo message from Hajk will show only once.",
+      "showOnlyOnce": true,
+      "maps": ["map_1"],
       "timeout": 5000,
-      "type": "warning"
+      "startTime": "2020-06-29",
+      "stopTime": "2099-12-31",
+      "type": "info",
+      "browsers": "all"
     },
     {
       "id": 2,
       "active": true,
-      "text": "Welcome to Hajk!",
-      "showOnlyOnce": true,
-      "maps": ["map_1"],
-      "timeout": 3000,
-      "startTime": "2020-06-29",
-      "stopTime": "2099-12-31",
-      "type": "info"
+      "text": "Your browser is not supported anymore. Please update to a modern browser.",
+      "showOnlyOnce": false,
+      "type": "warning",
+      "browsers": ["ie"]
     }
   ]
 }
