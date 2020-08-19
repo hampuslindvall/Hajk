@@ -3,7 +3,7 @@
   "version": "4.0.0",
   "proxy": "",
   "mapserviceBase": "http://localhost:8080",
-  "defaultMap": "jw",
+  "defaultMap": "map_1",
   "experimentalDownloadLink": false,
   "experimentalIntroductionEnabled": true,
   "experimentalIntroductionSteps": [],

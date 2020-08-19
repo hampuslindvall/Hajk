@@ -1,7 +1,7 @@
 {
   "chapters": [
     {
-      "header": "JW OP!",
+      "header": "map_1's Informative",
       "html": "",
       "mapSettings": {
         "center": [111664, 6284272],
@@ -12,5 +12,5 @@
       "layers": ["100"]
     }
   ],
-  "map": "jw"
+  "map": "map_1"
 }

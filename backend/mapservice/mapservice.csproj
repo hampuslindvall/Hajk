@@ -189,11 +189,11 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\layers.json" />
-    <Content Include="App_Data\documents\oversiktsplan.json" />
     <Content Include="App_Data\templates\projections.template" />
     <Content Include="App_Data\templates\map.template" />
     <None Include="Properties\PublishProfiles\File.pubxml" />
-    <None Include="App_Data\jw.json" />
+    <None Include="App_Data\map_1.json" />
+    <None Include="App_Data\documents\map_1.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -277,6 +277,7 @@
   <ItemGroup>
     <Folder Include="Temp\" />
     <Folder Include="Views\" />
+    <Folder Include="App_Data\documents\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EdpConn\EdpConn.csproj">
