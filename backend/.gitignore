@@ -22,6 +22,7 @@ bld/
 #logs
 *.
 [Ll]ogs/
+log-file.txt
 
 # Roslyn cache directories
 *.ide/
