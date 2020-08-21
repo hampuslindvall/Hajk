@@ -4,169 +4,309 @@
     {
       "code": "EPSG:3006",
       "definition": "+proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [181896.33, 6101648.07, 864416.0, 7689478.3],
+      "extent": [
+        181896.33,
+        6101648.07,
+        864416.0,
+        7689478.3
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3006",
       "definition": "+proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [181896.33, 6101648.07, 864416.0, 7689478.3],
+      "extent": [
+        181896.33,
+        6101648.07,
+        864416.0,
+        7689478.3
+      ],
       "units": null
     },
     {
       "code": "EPSG:3007",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=12 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [60436.5084, 6192389.565, 217643.4713, 6682784.4276],
+      "extent": [
+        60436.5084,
+        6192389.565,
+        217643.4713,
+        6682784.4276
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3007",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=12 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [60436.5084, 6192389.565, 217643.4713, 6682784.4276],
+      "extent": [
+        60436.5084,
+        6192389.565,
+        217643.4713,
+        6682784.4276
+      ],
       "units": null
     },
     {
       "code": "EPSG:3008",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=13.5 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ",
-      "extent": [60857.4994, 6120098.8505, 223225.0217, 6906693.7888],
+      "extent": [
+        60857.4994,
+        6120098.8505,
+        223225.0217,
+        6906693.7888
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3008",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=13.5 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ",
-      "extent": [60857.4994, 6120098.8505, 223225.0217, 6906693.7888],
+      "extent": [
+        60857.4994,
+        6120098.8505,
+        223225.0217,
+        6906693.7888
+      ],
       "units": null
     },
     {
       "code": "EPSG:3009",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=15 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [56294.0365, 6203542.5282, 218719.0581, 6835499.2391],
+      "extent": [
+        56294.0365,
+        6203542.5282,
+        218719.0581,
+        6835499.2391
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3009",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=15 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [56294.0365, 6203542.5282, 218719.0581, 6835499.2391],
+      "extent": [
+        56294.0365,
+        6203542.5282,
+        218719.0581,
+        6835499.2391
+      ],
       "units": null
     },
     {
       "code": "EPSG:3010",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=16.5 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [97213.6352, 6228930.1419, 225141.8681, 6916524.0785],
+      "extent": [
+        97213.6352,
+        6228930.1419,
+        225141.8681,
+        6916524.0785
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3010",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=16.5 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [97213.6352, 6228930.1419, 225141.8681, 6916524.0785],
+      "extent": [
+        97213.6352,
+        6228930.1419,
+        225141.8681,
+        6916524.0785
+      ],
       "units": null
     },
     {
       "code": "EPSG:3011",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=18 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [96664.5565, 6509617.2232, 220146.6914, 6727103.5879],
+      "extent": [
+        96664.5565,
+        6509617.2232,
+        220146.6914,
+        6727103.5879
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3011",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=18 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [96664.5565, 6509617.2232, 220146.6914, 6727103.5879],
+      "extent": [
+        96664.5565,
+        6509617.2232,
+        220146.6914,
+        6727103.5879
+      ],
       "units": null
     },
     {
       "code": "EPSG:3012",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=14.25 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [30462.5263, 6829647.9842, 216416.1584, 7154168.0208],
+      "extent": [
+        30462.5263,
+        6829647.9842,
+        216416.1584,
+        7154168.0208
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3012",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=14.25 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [30462.5263, 6829647.9842, 216416.1584, 7154168.0208],
+      "extent": [
+        30462.5263,
+        6829647.9842,
+        216416.1584,
+        7154168.0208
+      ],
       "units": null
     },
     {
       "code": "EPSG:3013",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=15.75 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ",
-      "extent": [34056.6264, 6710433.2884, 218692.0214, 7224144.732],
+      "extent": [
+        34056.6264,
+        6710433.2884,
+        218692.0214,
+        7224144.732
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3013",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=15.75 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ",
-      "extent": [34056.6264, 6710433.2884, 218692.0214, 7224144.732],
+      "extent": [
+        34056.6264,
+        6710433.2884,
+        218692.0214,
+        7224144.732
+      ],
       "units": null
     },
     {
       "code": "EPSG:3014",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=17.25 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [-1420.28, 6888655.5779, 212669.1333, 7459585.3378],
+      "extent": [
+        -1420.28,
+        6888655.5779,
+        212669.1333,
+        7459585.3378
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3014",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=17.25 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [-1420.28, 6888655.5779, 212669.1333, 7459585.3378],
+      "extent": [
+        -1420.28,
+        6888655.5779,
+        212669.1333,
+        7459585.3378
+      ],
       "units": null
     },
     {
       "code": "EPSG:3015",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=18.75 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [58479.4774, 6304213.2147, 241520.5226, 7276832.4419],
+      "extent": [
+        58479.4774,
+        6304213.2147,
+        241520.5226,
+        7276832.4419
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3015",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=18.75 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [58479.4774, 6304213.2147, 241520.5226, 7276832.4419],
+      "extent": [
+        58479.4774,
+        6304213.2147,
+        241520.5226,
+        7276832.4419
+      ],
       "units": null
     },
     {
       "code": "EPSG:3016",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=20.25 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [-93218.3385, 7034909.8738, 261434.6246, 7676279.8691],
+      "extent": [
+        -93218.3385,
+        7034909.8738,
+        261434.6246,
+        7676279.8691
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3016",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=20.25 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [-93218.3385, 7034909.8738, 261434.6246, 7676279.8691],
+      "extent": [
+        -93218.3385,
+        7034909.8738,
+        261434.6246,
+        7676279.8691
+      ],
       "units": null
     },
     {
       "code": "EPSG:3017",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=21.75 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [67451.0699, 7211342.8483, 145349.5699, 7254837.254],
+      "extent": [
+        67451.0699,
+        7211342.8483,
+        145349.5699,
+        7254837.254
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3017",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=21.75 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [67451.0699, 7211342.8483, 145349.5699, 7254837.254],
+      "extent": [
+        67451.0699,
+        7211342.8483,
+        145349.5699,
+        7254837.254
+      ],
       "units": null
     },
     {
       "code": "EPSG:3018",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=23.25 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [38920.7048, 7267405.2323, 193050.246, 7597992.2419],
+      "extent": [
+        38920.7048,
+        7267405.2323,
+        193050.246,
+        7597992.2419
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3018",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=23.25 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-      "extent": [38920.7048, 7267405.2323, 193050.246, 7597992.2419],
+      "extent": [
+        38920.7048,
+        7267405.2323,
+        193050.246,
+        7597992.2419
+      ],
       "units": null
     },
     {
       "code": "EPSG:3021",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=15.80827777777778 +k=1 +x_0=1500000 +y_0=0 +ellps=bessel +units=m +no_defs",
-      "extent": [1392811.0743, 6208496.7665, 1570600.8906, 7546077.6984],
+      "extent": [
+        1392811.0743,
+        6208496.7665,
+        1570600.8906,
+        7546077.6984
+      ],
       "units": null
     },
     {
       "code": "http://www.opengis.net/gml/srs/epsg.xml#3021",
       "definition": "+proj=tmerc +lat_0=0 +lon_0=15.80827777777778 +k=1 +x_0=1500000 +y_0=0 +ellps=bessel +units=m +no_defs",
-      "extent": [1392811.0743, 6208496.7665, 1570600.8906, 7546077.6984],
+      "extent": [
+        1392811.0743,
+        6208496.7665,
+        1570600.8906,
+        7546077.6984
+      ],
       "units": null
     }
   ],
@@ -179,28 +319,28 @@
             "id": "58",
             "visibleAtStart": true,
             "drawOrder": 0,
-            "visibleForGroups": [],
+            "visibleForGroups": null,
             "infobox": ""
           },
           {
             "id": "72",
             "visibleAtStart": false,
             "drawOrder": 0,
-            "visibleForGroups": [],
+            "visibleForGroups": null,
             "infobox": ""
           },
           {
             "id": "649",
             "visibleAtStart": false,
             "drawOrder": 0,
-            "visibleForGroups": [],
+            "visibleForGroups": null,
             "infobox": ""
           },
           {
             "id": "110",
             "visibleAtStart": false,
             "drawOrder": 0,
-            "visibleForGroups": [],
+            "visibleForGroups": null,
             "infobox": ""
           }
         ],
@@ -216,21 +356,21 @@
                 "id": "665",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "666",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "667",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               }
             ],
@@ -247,28 +387,28 @@
                 "id": "100",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "662",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "663",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "664",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               }
             ],
@@ -285,56 +425,56 @@
                 "id": "658",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": "Override infobox. {name}"
               },
               {
                 "id": "655",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "623",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "654",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "186",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "406",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "647",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": "Override"
               },
               {
                 "id": "646",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               }
             ],
@@ -350,14 +490,14 @@
                     "id": "187",
                     "visibleAtStart": false,
                     "drawOrder": 1000,
-                    "visibleForGroups": [],
+                    "visibleForGroups": null,
                     "infobox": ""
                   },
                   {
                     "id": "380",
                     "visibleAtStart": false,
                     "drawOrder": 1000,
-                    "visibleForGroups": [],
+                    "visibleForGroups": null,
                     "infobox": ""
                   }
                 ],
@@ -376,42 +516,42 @@
                 "id": "84",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "641",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "657",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "652",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "648",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               },
               {
                 "id": "653",
                 "visibleAtStart": false,
                 "drawOrder": 1000,
-                "visibleForGroups": [],
+                "visibleForGroups": null,
                 "infobox": ""
               }
             ],
@@ -419,7 +559,7 @@
           }
         ],
         "active": true,
-        "visibleAtStart": true,
+        "visibleAtStart": false,
         "backgroundSwitcherBlack": true,
         "backgroundSwitcherWhite": true,
         "enableOSM": true,
@@ -433,7 +573,7 @@
         "dropdownThemeMaps": true,
         "themeMapHeaderCaption": "Rubriktext temakartor",
         "instruction": "SW5zdHJ1a3Rpb24gSGFudGVyYSBMYWdlcm1lbnk=",
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 0
     },
@@ -451,7 +591,7 @@
       "options": {
         "target": "toolbar",
         "instruction": "U2thcGEgZW4gbORuayB0aWxsIGthcnRhbg==",
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 7
     },
@@ -479,7 +619,7 @@
         ],
         "proxyUrl": "",
         "instruction": "U2thcGEgZW4gUERGIGF2IGthcnRhbiBzb20gZHUgc2VkYW4ga2FuIHNraWNrYSB2aWRhcmUgZWxsZXIgc2tyaXZhIHV0",
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 4
     },
@@ -487,7 +627,7 @@
       "type": "location",
       "options": {
         "target": "toolbar",
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 1
     },
@@ -499,7 +639,7 @@
         "varbergVer": false,
         "geoserverUrl": "",
         "notFeatureLayers": [],
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 6
     },
@@ -509,7 +649,7 @@
         "target": "toolbar",
         "apiKey": "AIzaSyCb-bvLmybNb4QSERR43eGlvvQyUrBAQG4",
         "instruction": "TWVkIGRldCBo5HIgdmVrdHlnZXQgZvZyZmx5dHRhciBkdSBkaWcgbmVyIHRpbGwgZ2F0dW5pduUgb2NoIGthbiBzZSBTdHJlZXRWaWV3LWJpbGRlciBk5HIgZGUgZmlubnMgdGlsbGfkbmdsaWdhLg==",
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 3
     },
@@ -524,7 +664,7 @@
         "instruction": "Uml0YSBvY2ggbeR0IG1lZCB2ZXJrdHlnZXQ=",
         "icons": "",
         "proxyUrl": "",
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 5
     },
@@ -533,7 +673,7 @@
       "options": {
         "target": "toolbar",
         "visibleAtStart": false,
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 0
     },
@@ -542,8 +682,11 @@
       "options": {
         "target": "toolbar",
         "instruction": "S29ydCBpbnN0cnVrdGlvbg==",
-        "activeServices": ["656", "657"],
-        "visibleForGroups": []
+        "activeServices": [
+          "656",
+          "657"
+        ],
+        "visibleForGroups": null
       },
       "index": 0
     },
@@ -572,7 +715,7 @@
             "inverseAxis": false
           }
         ],
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 0
     },
@@ -582,7 +725,7 @@
         "target": "toolbar",
         "apiKey": "AIzaSyCb-bvLmybNb4QSERR43eGlvvQyUrBAQG4",
         "instruction": "",
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 0
     },
@@ -595,7 +738,7 @@
         "title": "Visa informationsruta",
         "visibleAtStart": false,
         "showInfoOnce": false,
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 0
     },
@@ -606,7 +749,10 @@
         "position": "right",
         "width": 400,
         "height": 300,
-        "anchor": [0.5, 1],
+        "anchor": [
+          0.5,
+          1
+        ],
         "scale": 0.15,
         "src": "marker.png",
         "strokeColor": {
@@ -622,14 +768,17 @@
           "g": 0,
           "a": 0.1
         },
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 0
     },
     {
       "type": "search",
       "options": {
-        "anchor": [0.5, 1],
+        "anchor": [
+          0.5,
+          1
+        ],
         "scale": 0.15,
         "src": "marker.png",
         "strokeColor": {
@@ -653,18 +802,21 @@
         "searchWithinButtonText": "Fastigheter inom",
         "maxFeatures": 200,
         "delayBeforeAutoSearch": 2000,
-        "selectedSources": ["641", "428"],
+        "selectedSources": [
+          "641",
+          "428"
+        ],
         "layers": [
           {
             "id": "46",
-            "visibleForGroups": []
+            "visibleForGroups": null
           },
           {
             "id": "69",
-            "visibleForGroups": []
+            "visibleForGroups": null
           }
         ],
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 0
     },
@@ -681,7 +833,7 @@
             "presetUrl": "?m=jw&x=118571.56637597716&y=6275191.576529675&z=5.037823539868301"
           }
         ],
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 0
     },
@@ -700,7 +852,7 @@
         "showThankYou": true,
         "visibleAtStart": false,
         "thankYou": "<h1>Tack!</h1>\n<p>Ditt bidrag är nu skickat och vi kommer titta på det!</p>",
-        "visibleForGroups": [],
+        "visibleForGroups": null,
         "form": [
           {
             "id": 216027961772,
@@ -739,7 +891,7 @@
         "html": "<div>HTML som beskriver dokumentets innehåll</div>",
         "document": "map_1",
         "visibleAtStart": false,
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 0
     },
@@ -752,14 +904,17 @@
         "logo": "logo_large.png",
         "instruction": "",
         "visibleAtStart": false,
-        "visibleForGroups": []
+        "visibleForGroups": null
       },
       "index": 1
     }
   ],
   "map": {
     "target": "map",
-    "center": [110600, 6283796],
+    "center": [
+      110600,
+      6283796
+    ],
     "title": "Jacobs testkarta",
     "projection": "EPSG:3008",
     "zoom": 1,
@@ -777,8 +932,16 @@
       0.112,
       0.056
     ],
-    "origin": [72595.7168, 6269051.84184],
-    "extent": [72595.7168, 6269051.84184, 139282.1317, 6313912.82227],
+    "origin": [
+      72595.7168,
+      6269051.84184
+    ],
+    "extent": [
+      72595.7168,
+      6269051.84184,
+      139282.1317,
+      6313912.82227
+    ],
     "constrainOnlyCenter": true,
     "constrainResolution": false,
     "logo": "logo_small.png",
