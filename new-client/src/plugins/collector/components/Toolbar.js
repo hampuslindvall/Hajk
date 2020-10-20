@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import clsx from "clsx";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import ScatterPlotIcon from "@material-ui/icons/ScatterPlot";
@@ -10,6 +11,9 @@ const styles = (theme) => ({
   button: {
     margin: theme.spacing(1),
     width: "115px",
+  },
+  selected: {
+    background: theme.palette.action.selected,
   },
   leftIcon: {
     marginRight: theme.spacing(1),
@@ -166,14 +170,6 @@ class Toolbar extends Component {
     });
   }
 
-  getSelectedStyle(type) {
-    var style = {};
-    if (type === this.state.activeTool) {
-      style.backgroundColor = "#ccc";
-    }
-    return style;
-  }
-
   render() {
     const source = this.props.serviceConfig;
     var disabled = !this.props.enabled,
@@ -194,42 +190,48 @@ class Toolbar extends Component {
           <div className={classes.toolbarRow}>
             <Button
               variant="outlined"
-              className={classes.button}
+              className={clsx(
+                classes.button,
+                this.state.activeTool === "point" ? classes.selected : null
+              )}
               disabled={disabled === false ? !editPoint : disabled}
               onClick={() => {
                 this.onAddPointClicked();
               }}
               type="button"
               title="Lägg till plats"
-              style={this.getSelectedStyle("point")}
             >
               Plats
               <ScatterPlotIcon className={classes.rightIcon} />
             </Button>
             <Button
               variant="outlined"
-              className={classes.button}
+              className={clsx(
+                classes.button,
+                this.state.activeTool === "linestring" ? classes.selected : null
+              )}
               disabled={disabled === false ? !editLine : disabled}
               onClick={() => {
                 this.onAddLineClicked();
               }}
               type="button"
               title="Lägg till sträcka"
-              style={this.getSelectedStyle("linestring")}
             >
               Sträcka
               <LinearScaleIcon className={classes.rightIcon} />
             </Button>
             <Button
               variant="outlined"
-              className={classes.button}
+              className={clsx(
+                classes.button,
+                this.state.activeTool === "polygon" ? classes.selected : null
+              )}
               disabled={disabled === false ? !editPolygon : disabled}
               onClick={() => {
                 this.onAddPolygonClicked();
               }}
               type="button"
               title="Lägg till område"
-              style={this.getSelectedStyle("polygon")}
             >
               Område
               <BorderStyleIcon className={classes.rightIcon} />

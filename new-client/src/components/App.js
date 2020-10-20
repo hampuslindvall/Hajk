@@ -49,6 +49,7 @@ document.windows = [];
 const DRAWER_WIDTH = 250;
 
 const styles = (theme) => {
+  console.log("theme: ", theme);
   return {
     map: {
       zIndex: 1,
@@ -154,7 +155,6 @@ const styles = (theme) => {
     },
     drawerGrid: {
       padding: theme.spacing(0, 2),
-      backgroundColor: "#fff",
       minHeight: theme.spacing(6),
     },
     backdrop: {
